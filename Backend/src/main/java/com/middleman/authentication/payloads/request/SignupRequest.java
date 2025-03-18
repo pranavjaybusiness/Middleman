@@ -1,5 +1,7 @@
 package com.middleman.authentication.payloads.request;
 import jakarta.validation.constraints.*;
+import java.util.List;
+import java.util.Set;
 
 public class SignupRequest {
         
@@ -35,6 +37,9 @@ public class SignupRequest {
         @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[A-Za-z\\d]+$",
         message = "Password must contain at least one uppercase letter, one lowercase letter, and one number, with no spaces")
         private String password;
+
+        private Set<String> roles;
+
         /**
          * If email passed in is valid format, it will set email 
          * @param email inputted email by user
@@ -63,6 +68,13 @@ public class SignupRequest {
         public String getPassword(){
             return this.password;
         }
+        public Set<String> getRoles() {
+            return this.roles;
+          }
+        
+          public void setRole(Set<String> roles) {
+            this.roles = roles;
+          }
 
     
     
